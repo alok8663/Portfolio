@@ -509,7 +509,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   
     async function sendMessageToTogetherAI(userMessage) {
-        const apiKey = "YOUR_TOGETHER_AI_API_KEY"; // Store this securely (Netlify env variable)
+        const apiKey = "tgp_v1_xS5h8vxxgIYKLlHe885yrJS_W_Q3QMMeNRR5DkTP8q4"; // Store this securely (Netlify env variable)
     
         // Define structured prompt with resume context
         const resumeText = `
@@ -856,3 +856,5 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   });
+
+  
