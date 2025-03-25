@@ -125,7 +125,6 @@
     min-height: 100vh;
     position: relative;
     text-transform: lowercase; /* Restore this property */
-    cursor: none;
     /* Cursor is hidden for custom cursor effect */
   }
   
