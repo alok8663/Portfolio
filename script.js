@@ -505,9 +505,6 @@ document.addEventListener("DOMContentLoaded", function () {
             
             console.error("Form submission error:", error);
           });
-      });
-    }
-  
 // Chatbot Button Functionality
 const chatbotTrigger = document.querySelector(".chatbot-trigger");
 let isChatbotOpen = false;
