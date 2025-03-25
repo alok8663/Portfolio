@@ -508,29 +508,52 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     }
   
-    const chatbotTrigger = document.querySelector(".chatbot-trigger");
-    let isChatbotOpen = false;
+// Chatbot Button Functionality
+const chatbotTrigger = document.querySelector(".chatbot-trigger");
+let isChatbotOpen = false;
+let chatbotRetries = 0;
+const maxRetries = 3;
 
-    if (chatbotTrigger) {
-        chatbotTrigger.addEventListener("click", function() {
-          if (typeof window.togetherAI === 'function') {
-            if (isChatbotOpen) {
-              window.togetherAI("close");
-              isChatbotOpen = false;
-              this.classList.remove("active");
-            } else {
-              window.togetherAI("open");
-              isChatbotOpen = true;
-              this.classList.add("active");
-            }
-          } else {
-            console.error("Together AI not loaded yet");
-            // Optionally show a message to the user
-            alert("Chatbot is still loading. Please try again in a moment.");
-          }
-        });
-      }
+function toggleChatbot() {
+  if (typeof window.togetherAI === 'function' && togetherAIInitialized) {
+    if (isChatbotOpen) {
+      window.togetherAI("close");
+      isChatbotOpen = false;
+      chatbotTrigger.classList.remove("active");
+    } else {
+      window.togetherAI("open");
+      isChatbotOpen = true;
+      chatbotTrigger.classList.add("active");
+    }
+  } else {
+    chatbotRetries++;
+    if (chatbotRetries <= maxRetries) {
+      console.log(`Chatbot not ready, retrying (${chatbotRetries}/${maxRetries})...`);
+      setTimeout(toggleChatbot, 1000 * chatbotRetries);
+    } else {
+      console.error("Chatbot failed to load after multiple attempts");
+      chatbotTrigger.style.display = 'none';
+    }
+  }
+}
 
+if (chatbotTrigger) {
+  chatbotTrigger.addEventListener("click", function(e) {
+    e.preventDefault();
+    toggleChatbot();
+  });
+  
+  // Hide button initially until we confirm it works
+  chatbotTrigger.style.display = 'none';
+  
+  // Check every 500ms if Together AI is ready, then show button
+  const checkInterval = setInterval(() => {
+    if (togetherAIInitialized) {
+      chatbotTrigger.style.display = 'flex';
+      clearInterval(checkInterval);
+    }
+  }, 500);
+}
     
     
       

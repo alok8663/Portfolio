@@ -505,33 +505,54 @@
 
 <!-- Together AI Chatbot Integration -->
 <script>
+    // Track loading state
+    let togetherAILoaded = false;
+    let togetherAIInitialized = false;
+  
     // Initialize chatbot when script loads
     function initTogetherAI() {
-      if (typeof window.togetherAI === 'function') {
-        window.togetherAI("init", {
-          apiKey: "tgp_v1_xS5h8vxxgIYKLlHe885yrJS_W_Q3QMMeNRR5DkTP8q4", // Replace with your actual API key
-          domain: "www.together.ai",
-          theme: {
-            primaryColor: "#86f50f",
-            backgroundColor: "#1e1e1e",
-            textColor: "#ffffff",
-            fontFamily: "'Poppins', sans-serif",
-          },
-          showButton: false // We're using our own button
-        });
+      if (typeof window.togetherAI === 'function' && !togetherAIInitialized) {
+        try {
+          window.togetherAI("init", {
+            apiKey: "YOUR_TOGETHER_AI_API_KEY", // REPLACE WITH ACTUAL KEY
+            domain: "www.together.ai",
+            theme: {
+              primaryColor: "#86f50f",
+              backgroundColor: "#1e1e1e",
+              textColor: "#ffffff",
+              fontFamily: "'Poppins', sans-serif",
+            },
+            showButton: false
+          });
+          togetherAIInitialized = true;
+        } catch (e) {
+          console.error("Together AI initialization failed:", e);
+        }
       }
     }
   
-    // Load Together AI script dynamically
-    const script = document.createElement("script");
-    script.src = "https://together.ai/embed.js";
-    script.defer = true;
-    script.onload = initTogetherAI;
-    document.body.appendChild(script);
+    // Load Together AI script dynamically with error handling
+    function loadTogetherAI() {
+      const script = document.createElement("script");
+      script.src = "https://together.ai/embed.js";
+      script.defer = true;
+      script.onload = function() {
+        togetherAILoaded = true;
+        initTogetherAI();
+      };
+      script.onerror = function() {
+        console.error("Failed to load Together AI script");
+        document.querySelector('.chatbot-trigger').style.display = 'none';
+      };
+      document.body.appendChild(script);
+    }
   
-    // Function to update Together AI theme when user switches themes
+    // Start loading when DOM is ready
+    document.addEventListener('DOMContentLoaded', loadTogetherAI);
+  
+    // Function to update Together AI theme
     function updateTogetherAITheme(theme) {
-      if (typeof window.togetherAI === 'function') {
+      if (togetherAIInitialized) {
         window.togetherAI("updateConfig", {
           theme: {
             primaryColor: theme === "light" ? "#ff69b4" : "#ffcc00",
