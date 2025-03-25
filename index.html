@@ -505,54 +505,43 @@
 
 <!-- Together AI Chatbot Integration -->
 <script>
+    // Initialize chatbot when script loads
+    function initTogetherAI() {
+      if (typeof window.togetherAI === 'function') {
+        window.togetherAI("init", {
+          apiKey: "tgp_v1_xS5h8vxxgIYKLlHe885yrJS_W_Q3QMMeNRR5DkTP8q4", // Replace with your actual API key
+          domain: "www.together.ai",
+          theme: {
+            primaryColor: "#86f50f",
+            backgroundColor: "#1e1e1e",
+            textColor: "#ffffff",
+            fontFamily: "'Poppins', sans-serif",
+          },
+          showButton: false // We're using our own button
+        });
+      }
+    }
+  
     // Load Together AI script dynamically
     const script = document.createElement("script");
-    script.src = "https://together.ai/embed.js"; // Ensure this is the correct script URL
+    script.src = "https://together.ai/embed.js";
     script.defer = true;
+    script.onload = initTogetherAI;
     document.body.appendChild(script);
-  
-    // Initialize chatbot when script loads
-    script.onload = function () {
-      // Initialize Together AI function
-      window.togetherAI =
-        window.togetherAI ||
-        function () {
-          (window.togetherAI.q = window.togetherAI.q || []).push(arguments);
-        };
-  
-      // Initialize chatbot with your API key
-      window.togetherAI("init", {
-        apiKey: "tgp_v1_xS5h8vxxgIYKLlHe885yrJS_W_Q3QMMeNRR5DkTP8q4", // Replace with your actual API key
-        domain: "www.together.ai",
-        theme: {
-          primaryColor: "#86f50f",
-          backgroundColor: "#1e1e1e",
-          textColor: "#ffffff",
-          fontFamily: "'Poppins', sans-serif",
-        },
-        showButton: true, // Show default chatbot button
-      });
-    };
   
     // Function to update Together AI theme when user switches themes
     function updateTogetherAITheme(theme) {
-      if (window.togetherAI) {
+      if (typeof window.togetherAI === 'function') {
         window.togetherAI("updateConfig", {
           theme: {
             primaryColor: theme === "light" ? "#ff69b4" : "#ffcc00",
-            backgroundColor:
-              theme === "light"
-                ? "#ffffff"
-                : theme === "dark"
-                ? "#000000"
-                : "#8a2be2",
+            backgroundColor: theme === "light" ? "#ffffff" : theme === "dark" ? "#000000" : "#8a2be2",
             textColor: theme === "light" ? "#000000" : "#ffffff",
-          },
+          }
         });
       }
     }
   </script>
-  
 
   
 

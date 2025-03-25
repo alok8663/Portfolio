@@ -508,104 +508,28 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     }
   
-    async function sendMessageToTogetherAI(userMessage) {
-        const apiKey = "tgp_v1_xS5h8vxxgIYKLlHe885yrJS_W_Q3QMMeNRR5DkTP8q4"; // Store this securely (Netlify env variable)
-    
-        // Define structured prompt with resume context
-        const resumeText = `
-        Name: Alok Verma
-        Education: 
-        - B.Tech in Mechanical Engineering (2022-2026) at MNIT Jaipur (CGPA: 7.46)
-        - CBSE (Class 12: 89%, Class 10: 94.4%)
-    
-        Projects:
-        - Customer Churn Prediction: End-to-end ML project using ANN, Python, TensorFlow
-        - Credit Risk Assessment: XGBoost, Data Analysis
-        - Sales Insights Dashboard: Tableau, Data Visualization
-    
-        Skills: Python, Java, Machine Learning, Data Structures, SQL, Tableau
-        Experience: Freelance CGI Artist for Mortgages Business (2023-Present)
-    
-        Achievements:
-        - Cleared JEE MAINS
-        - National Mathematical Olympiad & KVPY Participant
-        `;
-    
-        try {
-            const response = await fetch("https://api.together.xyz/v1/chat/completions", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    "Authorization": `Bearer ${apiKey}`
-                },
-                body: JSON.stringify({
-                    model: "meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo",
-                    messages: [
-                        { role: "system", content: "You are an AI chatbot trained on Alok Verma's resume. Provide structured and professional answers." },
-                        { role: "system", content: resumeText },
-                        { role: "user", content: userMessage }
-                    ]
-                })
-            });
-    
-            const data = await response.json();
-            
-            if (data.choices && data.choices.length > 0) {
-                return data.choices[0].message.content;
+    const chatbotTrigger = document.querySelector(".chatbot-trigger");
+    let isChatbotOpen = false;
+
+    if (chatbotTrigger) {
+        chatbotTrigger.addEventListener("click", function() {
+          if (typeof window.togetherAI === 'function') {
+            if (isChatbotOpen) {
+              window.togetherAI("close");
+              isChatbotOpen = false;
+              this.classList.remove("active");
             } else {
-                return "Sorry, I couldn't process your request.";
+              window.togetherAI("open");
+              isChatbotOpen = true;
+              this.classList.add("active");
             }
-        } catch (error) {
-            console.error("Error fetching chatbot response:", error);
-            return "There was an error connecting to the chatbot.";
-        }
-    }
-    
-    // Attach event listener to send button
-    document.addEventListener("DOMContentLoaded", function () {
-        const chatbotTrigger = document.querySelector(".chatbot-trigger");
-        const chatInput = document.querySelector("#chat-input");
-        const sendMessageButton = document.querySelector(".send-message");
-        const chatOutput = document.querySelector("#chat-output");
-        let isChatbotOpen = false;
-    
-        // Toggle chatbot UI (if using embed UI)
-        chatbotTrigger.addEventListener("click", function () {
-            console.log("Chat button clicked");
-    
-            if (window.togetherAI) {
-                if (isChatbotOpen) {
-                    console.log("Closing Together AI chatbot");
-                    window.togetherAI("close");
-                    isChatbotOpen = false;
-                    chatbotTrigger.classList.remove("active");
-                } else {
-                    console.log("Opening Together AI chatbot");
-                    window.togetherAI("open");
-                    isChatbotOpen = true;
-                    chatbotTrigger.classList.add("active");
-                    chatbotTrigger.style.transform = "rotate(45deg) scale(1.1)";
-                }
-            } else {
-                console.log("Together AI chatbot not loaded yet");
-            }
+          } else {
+            console.error("Together AI not loaded yet");
+            // Optionally show a message to the user
+            alert("Chatbot is still loading. Please try again in a moment.");
+          }
         });
-    
-        // Send message when user clicks send button
-        sendMessageButton.addEventListener("click", function () {
-            const userMessage = chatInput.value.trim();
-            if (userMessage === "") return;
-    
-            chatOutput.innerHTML += `<p><strong>You:</strong> ${userMessage}</p>`;
-            chatInput.value = "";
-    
-            sendMessageToTogetherAI(userMessage).then(response => {
-                chatOutput.innerHTML += `<p><strong>Bot:</strong> ${response}</p>`;
-                chatOutput.scrollTop = chatOutput.scrollHeight; // Auto-scroll to latest message
-            });
-        });
-    });
-    
+      }
 
     
     
