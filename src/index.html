@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<!-- 
+  Note:- I have used the following wallpaper files in my project
+  1. black.jpg - For the dark theme
+  2. purple.jpg - For the purple theme
+  3. light.jpg - For the light theme
+  
+  These should be placed in the same directory as your HTML file.
+-->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alok_Verma_Portfolio</title>
+    <!-- Google Fonts -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&family=Poppins:wght@100..900&family=Dancing+Script:wght@400..700&family=Pacifico&family=Caveat:wght@400..700&display=swap"
+    rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- Page Navigation Dots -->
+    <div class="page-navigation">
+      <div class="nav-dot active" data-page="home"></div>
+      <div class="nav-dot" data-page="about"></div>
+      <div class="nav-dot" data-page="skills"></div>
+      <div class="nav-dot" data-page="projects"></div>
+      <div class="nav-dot" data-page="experience"></div>
+      <div class="nav-dot" data-page="contact"></div>
+    </div>
+
+    <div class="page-container">
+      <!-- Home Page (Original Content) -->
+      <section id="home" class="page active">
+        <div class="container">
+          <header>
+            <div class="logo"><i class="fas fa-code"></i> Alok</div>
+
+            <nav class="navigation">
+              <ul>
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#project">Projects</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#contact">Contact</a></li>
+              </ul>
+            </nav>
+          </header>
+
+          <main>
+            <div class="content">
+              <h1 class="name-heading">Hey i'm Alok Verma</h1>
+              <div class="typewriter-container">
+                <p class="typewriter-prefix">I'm a</p>
+                <p class="typewriter-text"></p>
+              </div>
+              <p class="bio-text">
+                passionate about data analysis and machine learning focused
+                on creating innovative solutions through hands-on projects and
+                real-world applications.
+              </p>
+              <a href="assets/Alok_Verma_Resume.pdf" download class="add-button">
+                Download resume
+              </a>
+            </div>
+
+            <div class="illustration">
+                <img 
+                    src="alok.png" 
+                    alt="My Personal Image" 
+                    class="personal-image"
+                />
+            </div>            
+      </section>
+
+      <!-- About Page -->
+      <section id="about" class="page">
+        <div class="container">
+          <header>
+            <div class="logo"><i class="fas fa-code"></i> Alok</div>
+
+            <nav class="navigation">
+              <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about" class="active">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#project">Projects</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#contact">Contact</a></li>
+              </ul>
+            </nav>
+          </header>
+
+          <main>
+            <div class="content full-width">
+              <h1>About me</h1>
+              <div class="about-content">
+                <div class="about-text">
+                  <h2>Who i am</h2>
+                  <p>
+                    I'm Alok Verma, a Mechanical Engineering student at MNIT Jaipur who loves transforming
+                    data into insights. I built an end-to-end Customer Churn Prediction model and worked on
+                    projects like Credit Risk Assessment and Sales Insights to solve real-world problems.
+                  </p>
+
+                  <h2>My approach</h2>
+                  <p>
+                    I break down complex tasks into smaller steps, making problem-solving more efficient and effective.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </main>
+        </div>
+      </section>
+
+      <!-- Skills Page -->
+      <section id="skills" class="page">
+        <div class="container">
+          <header>
+            <div class="logo"><i class="fas fa-code"></i> Alok</div>
+
+            <nav class="navigation">
+              <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills" class="active">Skills</a></li>
+                <li><a href="#project">Projects</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#contact">Contact</a></li>
+              </ul>
+            </nav>
+          </header>
+
+          <main>
+            <div class="content full-width">
+              <h1>My skills</h1>
+              <div class="skills-grid">
+                <div class="skill-card">
+                  <i class="fab fa-python"></i>
+                  <h3>Python Programming</h3>
+                  <p>
+                    Skilled in Python programming with experience in machine learning and data analysis.
+                  </p>
+                </div>
+                <div class="skill-card">
+                  <i class="fas fa-database"></i>
+                  <h3>Data Analysis</h3>
+                  <p>
+                    Skilled in analyzing large datasets using Pandas, NumPy,
+                    and SQL to extract meaningful insights and patterns.
+                  </p>
+                </div>
+                <div class="skill-card">
+                  <i class="fas fa-chart-bar"></i>
+                  <h3>Data Visualization</h3>
+                  <p>
+                Transforming complex data into meaningful insights with Matplotlib, Seaborn, Tableau and Alteryx.
+                  </p>
+                </div>
+                <div class="skill-card">
+                  <i class="fas fa-brain"></i>
+                  <h3>MLOps</h3>
+                  <p>
+                    Building ML models with Scikit-learn and TensorFlow for predictive analytics, including my 
+                    end-to-end Churn Prediction project.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </main>
+        </div>
+      </section>
+
+      <!-- Project Page -->
+      <section id="project" class="page">
+        <div class="container">
+          <header>
+            <div class="logo"><i class="fas fa-code"></i> Alok</div>
+
+            <nav class="navigation">
+              <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#project" class="active">Projects</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#contact">Contact</a></li>
+              </ul>
+            </nav>
+          </header>
+
+          <main>
+            <div class="content full-width">
+              <h1>My Projects</h1>
+              <div class="projects-showcase">
+                <div class="project-card">
+                  <div class="project-image">
+                    <i class="fas fa-graduation-cap"></i>
+                  </div>
+                  <h3>Customer Churn Prediction</h3>
+                  <p>
+                    Built an end-to-end ML model using EDA and ANN to predict customer churn.
+                  </p>
+                  <div class="tech-stack">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">Pandas</span>
+                    <span class="tech-tag">Numpy</span>
+                    <span class="tech-tag">Scikit-learn</span>
+                    <span class="tech-tag">TensorFlow</span>
+                    <span class="tech-tag">Keras</span>
+                  </div>
+                  <a
+                    href="https://github.com/alok8663/ml_Projects"
+                    target="_blank"
+                    class="view-project"
+                    >View</a
+                  >
+                </div>
+                <div class="project-card">
+                  <div class="project-image">
+                    <i class="fas fa-chart-line"></i>
+                  </div>
+                  <h3>Credit Risk Assessment</h3>
+                  <p>
+                    Built and optimized an XGBoost classifier using 
+                    hyperparameter tuning and cross-validation
+                  </p>
+                  <div class="tech-stack">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">Pandas</span>
+                    <span class="tech-tag">EDA</span>
+                    <span class="tech-tag">Scikit-learn</span>
+                    <span class="tech-tag">Seaborn</span>
+                    <span class="tech-tag">Matplotlib</span>
+                  </div>
+                  <a
+                    href="https://github.com/alok8663/ML_Projects1/blob/main/Credit_Assessment.ipynb"
+                    target="_blank"
+                    class="view-project"
+                    >View</a
+                  >
+                </div>
+                <div class="project-card">
+                  <div class="project-image">
+                    <i class="fas fa-calculator"></i>
+                  </div>
+                  <h3>Sales Insights</h3>
+                  <p>
+                    Developed a dynamic sales insights dashboard in Tableau for real-time
+                    data visualization and analysis
+                  </p>
+                  <div class="tech-stack">
+                    <span class="tech-tag">Tableau</span>
+                    <span class="tech-tag">Data Visualization</span>
+                  </div>
+                  <a
+                    href="https://public.tableau.com/app/profile/alok.verma7137/viz/TableauAlokVerma/Dashboard1"
+                    target="_blank"
+                    class="view-project"
+                    >View</a
+                  >
+                </div>
+              </div>
+
+            </div>
+          </main>
+        </div>
+      </section>
+
+      <!-- Experience Page -->
+      <section id="experience" class="page">
+        <div class="container">
+          <header>
+            <div class="logo"><i class="fas fa-code"></i> Alok</div>
+
+            <nav class="navigation">
+              <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#project">Projects</a></li>
+                <li><a href="#experience" class="active">Experience</a></li>
+                <li><a href="#contact">Contact</a></li>
+              </ul>
+            </nav>
+          </header>
+
+          <main>
+            <div class="content full-width">
+              <h1>My experience</h1>
+              <div class="single-experience">
+                <div class="experience-card">
+                  <div class="experience-header">
+                    <div class="experience-icon">
+                      <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <div class="experience-title">
+                      <h3>Freelance CGI Artist– Mortgage Business</h3>
+                    </div>
+                    <div class="experience-period">
+                      <span class="duration">Dec 2023 - Present</span>
+                    </div>
+                  </div>
+                  <div class="experience-body">
+                    <p>
+                        Developing 3D animated CGI videos to showcase 
+                        mortgage offerings and enhance client engagement.
+                    </p>
+                    <ul class="experience-highlights">
+                      <li>
+                        View Latest Video
+                      </li>
+                    <a
+                      href="https://drive.google.com/file/d/1SQagrc7NNS5NJv2LlolKHPW5laAqWRmf/view?usp=drive_link"
+                      target="_blank"
+                      class="view-latest_Video"
+                      >View Latest Video</a
+                    >
+                    </ul>
+                    <div class="tech-stack experience-tech">
+                      <h4>Technologies Used:</h4>
+                      <div class="tech-tags-container">
+                        <span class="tech-tag">Blender 3D</span>
+                        <span class="tech-tag">Adobe Premiere Pro</span>
+                        <span class="tech-tag">Canva</span>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </main>
+        </div>
+      </section>
+
+      <!-- Contact Page -->
+      <section id="contact" class="page">
+        <div class="container">
+          <header>
+            <div class="logo"><i class="fas fa-code"></i> Alok</div>
+
+            <nav class="navigation">
+              <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#project">Projects</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#contact" class="active">Contact</a></li>
+              </ul>
+            </nav>
+          </header>
+
+          <main>
+            <div class="content full-width">
+              <h1>Get in touch</h1>
+              <div class="contact-container">
+                <div class="contact-info">
+                  <div class="contact-details">
+                    <div class="contact-item">
+                      <i class="fas fa-envelope"></i>
+                      <p>alokv5833@gmail.com</p>
+                    </div>
+                    <div class="contact-item">
+                      <i class="fas fa-map-marker-alt"></i>
+                      <p>Jaipur, Rajasthan, India</p>
+                    </div>
+                  </div>
+                  <div class="social-links">
+                    <a
+                      href="https://www.linkedin.com/in/alok-verma-4335132a7/"
+                      class="social-icon"
+                      ><i class="fab fa-linkedin"></i
+                    ></a>
+                    <a
+                      href="https://github.com/alok8663"
+                      class="social-icon"
+                      ><i class="fab fa-github"></i
+                    ></a>
+                    <a
+                      href="https://www.instagram.com/alok._86?igsh=b2Z3ejYwODJ3eHo1"
+                      class="social-icon"
+                      ><i class="fab fa-instagram"></i
+                    ></a>
+                  </div>
+                </div>
+                <div class="contact-form">
+                  <form
+                    id="contact-form"
+                    action="https://formspree.io/f/maneyrwj"
+                    method="POST"
+                  >
+                    <div class="form-group">
+                      <label for="name">Name</label>
+                      <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        placeholder="Your Name"
+                        required
+                      />
+                    </div>
+                    <div class="form-group">
+                      <label for="email">Email</label>
+                      <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Your Email"
+                        required
+                      />
+                    </div>
+                    <div class="form-group">
+                      <label for="message">Message</label>
+                      <textarea
+                        id="message"
+                        name="message"
+                        placeholder="Your Message"
+                        required
+                      ></textarea>
+                    </div>
+                    <button type="submit" class="submit-button">
+                      <span class="plus-icon">→</span> Send message
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </main>
+        </div>
+      </section>
+    </div>
+
+    <button class="chat-bubble fixed-chat chatbot-trigger" id="chatButton">
+      <i class="fas fa-comment"></i>
+  </button>
+  
+  <section id="chatbot" class="chatbot-container">
+      <div class="chatbot-header">
+          <h3>Ask Me Anything</h3>
+          <button class="close-chatbot" id="closeChat">&times;</button>
+      </div>
+      <div class="chatbot-messages" id="chatResponse"></div>
+      <div class="chatbot-input">
+          <input type="text" id="userInput" placeholder="Ask about my experience...">
+          <button class="send-message" id="sendMessage">
+              <i class="fas fa-paper-plane"></i>
+          </button>
+      </div>
+  </section>
+  
+
+    <!-- Back to Top Button (Fixed on all pages) -->
+    <button class="back-to-top">
+      <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Mobile Bottom Navigation -->
+    <div class="mobile-nav">
+      <a href="#home" class="mobile-nav-item active" data-section="home">
+        <i class="fas fa-home"></i>
+        <span>Home</span>
+      </a>
+      <a href="#about" class="mobile-nav-item" data-section="about">
+        <i class="fas fa-user"></i>
+        <span>About</span>
+      </a>
+      <a href="#skills" class="mobile-nav-item" data-section="skills">
+        <i class="fas fa-code"></i>
+        <span>Skills</span>
+      </a>
+      <a href="#project" class="mobile-nav-item" data-section="project">
+        <i class="fas fa-project-diagram"></i>
+        <span>Projects</span>
+      </a>
+      <a href="#experience" class="mobile-nav-item" data-section="experience">
+        <i class="fas fa-briefcase"></i>
+        <span>Experience</span>
+      </a>
+      <a href="#contact" class="mobile-nav-item" data-section="contact">
+        <i class="fas fa-envelope"></i>
+        <span>Contact</span>
+      </a>
+    </div>
+
+    <!-- Setting default theme to Dark(Fixed on all pages) -->
+    <div class="theme-toggle">
+        <button class="theme-btn active" data-theme="dark">
+        <i class="fas fa-moon"></i>
+        </button>
+        <button class="theme-btn" data-theme="purple">
+        <i class="fas fa-palette"></i>
+        </button>
+        <button class="theme-btn" data-theme="light">
+        <i class="fas fa-sun"></i>
+        </button>
+    </div>
+
+
+    <!-- JavaScript for interactivity -->
+    <script src="script.js"></script>
+  </body>
+</html>

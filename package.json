@@ -1,0 +1,24 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "🌟 Features",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alok8663/Portfolio.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alok8663/Portfolio/issues"
+  },
+  "homepage": "https://github.com/alok8663/Portfolio#readme",
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "together-ai": "^0.13.0"
+  }
+}

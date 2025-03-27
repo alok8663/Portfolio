@@ -1,0 +1,53 @@
+{
+    "name": "Alok Verma",
+    "title": "Mechanical Engineer | Machine Learning Enthusiast",
+    "education": [
+      {
+        "degree": "B.Tech in Mechanical Engineering",
+        "university": "MNIT Jaipur",
+        "year": "2022-2026",
+        "cgpa": "7.46"
+      }
+    ],
+    "projects": [
+      {
+        "title": "Customer Churn Prediction",
+        "description": "Built an ANN model to predict customer churn based on data analysis.",
+        "technologies": ["Python", "TensorFlow", "Scikit-learn"]
+      },
+      {
+        "title": "Credit Risk Assessment",
+        "description": "Developed an XGBoost-based model for loan repayment predictions.",
+        "technologies": ["Python", "XGBoost", "Scikit-learn"]
+      },
+      {
+        "title": "Sales Insights",
+        "description": "Created a dynamic Tableau dashboard for real-time sales insights.",
+        "technologies": ["Tableau"]
+      }
+    ],
+    "skills": ["Python", "Machine Learning", "Deep Learning", "SQL", "Tableau", "Blender", "Java"],
+    "certifications": [
+      "Machine Learning (Udemy)",
+      "Deep Learning (Udemy)"
+    ],
+    "experience": [
+      {
+        "role": "Freelance CGI Artist",
+        "company": "Mortgages Business",
+        "duration": "2023 - Present",
+        "description": "Developed 3D animated CGI videos for mortgage offerings."
+      }
+    ],
+    "achievements": [
+      "Cleared JEE MAINS",
+      "National Mathematical Olympiad participant",
+      "KVPY participant"
+    ],
+    "socials": {
+      "github": "https://github.com/alok8663",
+      "linkedin": "https://www.linkedin.com/in/alok-verma-4335132a7/",
+      "portfolio": "https://blenderorbit.carrd.co"
+    }
+  }
+  
