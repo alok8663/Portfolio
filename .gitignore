@@ -1,1 +1,5 @@
 ".env" 
+".env"   # Exclude .env from version control
+"**/*.secret"   # Exclude other sensitive files
+".env" 
+"**/*.secret" 
