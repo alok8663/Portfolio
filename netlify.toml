@@ -6,6 +6,3 @@
   from = "/*"
   to = "/index.html"
   status = 200
-
-[functions]
-  directory = "src/functions"  # Ensure Netlify detects serverless functions
