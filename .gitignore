@@ -3,3 +3,5 @@
 "**/*.secret"   # Exclude other sensitive files
 ".env" 
 "**/*.secret" 
+".env" 
+".env" 
