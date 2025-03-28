@@ -1,3 +1,13 @@
+// script.js - FIRST LINES
+window.addEventListener('load', () => {
+  const loadingScreen = document.getElementById('loadingScreen');
+  if (loadingScreen) {
+    loadingScreen.style.transition = 'opacity 0.5s ease';
+    loadingScreen.style.opacity = '0';
+    setTimeout(() => loadingScreen.remove(), 500);
+  }
+});
+
 let currentSection = null; // Global scope
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -192,8 +202,11 @@ document.addEventListener("DOMContentLoaded", function () {
          const targetId = this.getAttribute("href").substring(1);
    
          // Scroll to the target section
-         document.getElementById(targetId).scrollIntoView({ behavior: "smooth" });
-   
+         if (targetElement) {
+          targetElement.scrollIntoView({ behavior: "smooth" });
+        } else {
+          console.warn(`Element with ID ${targetId} not found`);
+        }
          // Update the active dot
          updateActiveDot(targetId);
        });
@@ -216,30 +229,34 @@ document.addEventListener("DOMContentLoaded", function () {
        });
      });
    
-     // Function to update active dot
-     function updateActiveDot(targetId) {
-       // Remove active class from all dots
-       navDots.forEach((d) => d.classList.remove("active"));
+// New improved version with null check
+function updateActiveDot(targetId) {
+  // Get all dots fresh each time
+  const navDots = document.querySelectorAll(".nav-dot");
+  
+  // Remove active class from all
+  navDots.forEach((d) => d.classList.remove("active"));
+  
+  // Safely add to target
+  const targetDot = document.querySelector(`.nav-dot[data-page="${targetId}"]`);
+  if (targetDot) {
+    targetDot.classList.add("active");
+  }
+}
    
-       // Add active class to the target dot
-       document
-         .querySelector(`.nav-dot[data-page="${targetId}"]`)
-         .classList.add("active");
-     }
-   
-     // Function to update active nav link
-     function updateActiveNavLink(targetId) {
-       // Remove active class from all links
-       navLinks.forEach((l) => l.classList.remove("active"));
-   
-       // Add active class to the target link
-       document
-         .querySelector(`.navigation ul li a[href="#${targetId}"]`)
-         .classList.add("active");
-     }
+ // REPLACE LINES (~234-239)
+function updateActiveNavLink(targetId) {
+  const navLinks = document.querySelectorAll(".navigation ul li a");
+  navLinks.forEach((l) => l.classList.remove("active"));
+  
+  // Add null check
+  const targetLink = document.querySelector(`.navigation ul li a[href="#${targetId}"]`);
+  if (targetLink) targetLink.classList.add("active");
+}
    
      // Handle scroll events to update active section
      const pageContainer = document.querySelector(".page-container");
+     if (!pageContainer) return;  
      const pages = document.querySelectorAll(".page");
    
      pageContainer.addEventListener("scroll", function () {
@@ -511,13 +528,17 @@ document.addEventListener("DOMContentLoaded", function () {
      } 
  
 
-     document.addEventListener("DOMContentLoaded", function () {
       const chatButton = document.getElementById("chatButton");
       const chatbotContainer = document.getElementById("chatbot");
       const closeChat = document.getElementById("closeChat");
       const sendMessageButton = document.getElementById("sendMessage");
       const userInput = document.getElementById("userInput");
       const chatResponse = document.getElementById("chatResponse");
+
+      if (!chatButton || !chatbotContainer || !closeChat || !sendMessageButton || !userInput || !chatResponse) {
+        console.error("Chat elements missing - disabling chat functionality");
+        return;
+    }
   
       // Toggle chatbot visibility
       chatButton.addEventListener("click", function () {
@@ -532,7 +553,7 @@ document.addEventListener("DOMContentLoaded", function () {
       });
   
       // Send message function
-      function sendMessage() {
+      function sendChatMessage() {
           const userText = userInput.value.trim();
           if (userText === "") return;
   
@@ -554,23 +575,23 @@ document.addEventListener("DOMContentLoaded", function () {
           userInput.value = ""; // Clear input field
       }
   
-      sendMessageButton.addEventListener("click", sendMessage);
+      sendMessageButton.addEventListener("click", sendChatbotMessage);
       userInput.addEventListener("keypress", function (event) {
-          if (event.key === "Enter") sendMessage();
+          if (event.key === "Enter") sendChatbotMessage();
       });
-  });
+
   
     
      
      // Theme Switching Functionality
      const themeButtons = document.querySelectorAll(".theme-btn");
-   
-     // Set default theme (purple)
-     document.documentElement.setAttribute("data-theme", "purple");
-   
-     // Check if user has a saved theme preference
-     const savedTheme = localStorage.getItem("theme");
-     if (savedTheme) {
+
+     if (themeButtons.length > 0) {
+       // Set default theme to dark
+       let defaultTheme = "dark";
+       
+       // Check for saved theme preference
+       const savedTheme = localStorage.getItem("theme") || defaultTheme;
        document.documentElement.setAttribute("data-theme", savedTheme);
    
        // Update active button
@@ -584,7 +605,7 @@ document.addEventListener("DOMContentLoaded", function () {
    
 
 
-     async function sendMessage() {
+     async function sendChatbotMessage() {
       const userMessage = document.getElementById("userInput").value;
       let chatResponse = document.getElementById("chatResponse");
   
@@ -828,10 +849,5 @@ document.addEventListener("DOMContentLoaded", function () {
        
        // Also update mobile navigation
        currentSection = document.querySelector(".active-section");
-       button.addEventListener("click", () => {
-       if (currentSection) {
-         updateMobileNavActive(currentSection);
-       }
-    });
      });
  }); 
