@@ -1,8 +1,11 @@
 [build]
   publish = "src"
-  command = "echo 'Netlify Deployment Successful'"
+  command = "npm install && npm run build"  # Add proper build command
 
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
+
+[functions]
+  directory = "src/functions"  # Ensure Netlify detects serverless functions
